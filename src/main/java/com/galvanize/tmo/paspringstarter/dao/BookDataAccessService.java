@@ -14,9 +14,9 @@ public class BookDataAccessService implements BookDao{
 	private static List<Book> DB = new ArrayList<>();
 	
 	@Override
-	public int insertBook(int id, Book book) {
+	public Book insertBook(int id, Book book) {
 		DB.add(new Book(id, book.getAuthor(), book.getTitle(), book.getYearPublished()));
-		return 1;
+		return book;
 	}
 
 	@Override

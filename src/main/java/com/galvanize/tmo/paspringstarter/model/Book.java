@@ -1,12 +1,10 @@
 package com.galvanize.tmo.paspringstarter.model;
 
-import java.util.UUID;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Book {
 
-	private  int id;
+	private int id;
 	private final String author;
 	private final String title;
 	private final int yearPublished;

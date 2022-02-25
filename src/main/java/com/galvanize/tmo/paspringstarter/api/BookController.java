@@ -48,7 +48,6 @@ public class BookController {
 				return b1.getTitle().compareTo(b2.getTitle());
 			}
 		});
-		//return books;
 		Map<String,List<Book>> result = new HashMap<>();
 		result.put("books", books);
 		return result;
