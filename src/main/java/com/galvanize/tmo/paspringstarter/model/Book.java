@@ -6,12 +6,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Book {
 
-	private  UUID id;
+	private  int id;
 	private final String author;
 	private final String title;
 	private final int yearPublished;
 
-	public Book(@JsonProperty("id")UUID id,
+	public Book(@JsonProperty("id")int id,
 			@JsonProperty("author")String author,
 			@JsonProperty("title")String title,
 			@JsonProperty("yearPublished")int yearPublished) {
@@ -21,11 +21,11 @@ public class Book {
 		this.yearPublished = yearPublished;
 	}
 
-	public UUID getId() {
+	public int getId() {
 		return id;
 	}
 	
-	public void setId(UUID id) {
+	public void setId(int id) {
 		this.id = id;
 		
 	}

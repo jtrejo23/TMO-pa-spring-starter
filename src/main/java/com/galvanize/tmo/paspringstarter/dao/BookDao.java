@@ -7,10 +7,13 @@ import com.galvanize.tmo.paspringstarter.model.Book;
 
 public interface BookDao {
 
-	int insertBook(UUID id, Book book);
+	int insertBook(int id, Book book);
 	
 	default Book insertBook(Book book) {
-		UUID id = UUID.randomUUID();
+		//int id = UUID.randomUUID();
+        UUID idOne = UUID.randomUUID();
+        String str=""+idOne;        
+        int id=str.hashCode();
 		if(insertBook(id, book) == 1) {
 			book.setId(id);
 		}
