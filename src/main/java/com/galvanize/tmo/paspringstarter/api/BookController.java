@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.galvanize.tmo.paspringstarter.model.Book;
 import com.galvanize.tmo.paspringstarter.service.BookService;
 
-@RequestMapping("//api/books")
+@RequestMapping("/api/books")
 @RestController
 public class BookController {
 
@@ -28,14 +28,14 @@ public class BookController {
 		this.bookService = bookService;
 	}
 	
-	@PostMapping
+	@PostMapping(produces = "application/json")
 	@ResponseStatus(HttpStatus.CREATED)
 	public List<Book> addBook(@RequestBody Book book) {
 		bookService.addBook(book);
 		return bookService.getAllBooks();
 	}
 	
-	@GetMapping
+	@GetMapping(produces = "application/json")
 	public List<Book> getAllBooks(){
 		
 		List<Book> books = bookService.getAllBooks();
