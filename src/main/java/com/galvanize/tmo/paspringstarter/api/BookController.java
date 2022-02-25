@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.galvanize.tmo.paspringstarter.model.Book;
 import com.galvanize.tmo.paspringstarter.service.BookService;
 
-@RequestMapping("api/books")
+@RequestMapping("//api/books")
 @RestController
 public class BookController {
 
