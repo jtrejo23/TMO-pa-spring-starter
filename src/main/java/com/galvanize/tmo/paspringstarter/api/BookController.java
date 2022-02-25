@@ -29,7 +29,7 @@ public class BookController {
 	}
 	
 	@PostMapping
-	@ResponseStatus(HttpStatus.CREATED)
+	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public List<Book> addBook(@RequestBody Book book) {
 		bookService.addBook(book);
 		return bookService.getAllBooks();
