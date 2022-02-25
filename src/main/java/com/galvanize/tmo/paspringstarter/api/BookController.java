@@ -2,7 +2,9 @@ package com.galvanize.tmo.paspringstarter.api;
 
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,7 +37,7 @@ public class BookController {
 	}
 	
 	@GetMapping
-	public List<Book> getAllBooks(){
+	public Map<String,List<Book>> getAllBooks(){
 		
 		List<Book> books = bookService.getAllBooks();
 
@@ -46,7 +48,10 @@ public class BookController {
 				return b1.getTitle().compareTo(b2.getTitle());
 			}
 		});
-		return books;
+		//return books;
+		Map<String,List<Book>> result = new HashMap<>();
+		result.put("books", books);
+		return result;
 	}
 	
 	@DeleteMapping
