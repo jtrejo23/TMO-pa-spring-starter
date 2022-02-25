@@ -9,9 +9,16 @@ public interface BookDao {
 
 	int insertBook(UUID id, Book book);
 	
-	default int insertBook(Book book) {
+	default Book insertBook(Book book) {
 		UUID id = UUID.randomUUID();
-		return insertBook(id, book);
+		if(insertBook(id, book) == 1) {
+			book.setId(id);
+		}
+		return book;
+//		System.out.println("ID: " + id);		
+//		System.out.println(insertBook(id,book));
+//		return insertBook(id, book);
+		
 	}
 	
 	List<Book> selectAllBooks();

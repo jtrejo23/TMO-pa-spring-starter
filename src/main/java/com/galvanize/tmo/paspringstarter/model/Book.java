@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Book {
 
-	private final UUID id;
+	private  UUID id;
 	private final String author;
 	private final String title;
 	private final int yearPublished;
@@ -23,6 +23,11 @@ public class Book {
 
 	public UUID getId() {
 		return id;
+	}
+	
+	public void setId(UUID id) {
+		this.id = id;
+		
 	}
 
 	public String getAuthor() {

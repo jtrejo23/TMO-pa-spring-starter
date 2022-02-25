@@ -19,7 +19,7 @@ public class BookService {
 		this.bookDao = bookDao;
 	}
 	
-	public int addBook(Book book) {
+	public Book addBook(Book book) {
 		return bookDao.insertBook(book);
 	}
 
