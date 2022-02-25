@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.galvanize.tmo.paspringstarter.model.Book;
 import com.galvanize.tmo.paspringstarter.service.BookService;
 
-@RequestMapping("/api/books")
+@RequestMapping("api/books")
 @RestController
 public class BookController {
 
@@ -28,14 +29,14 @@ public class BookController {
 		this.bookService = bookService;
 	}
 	
-	@PostMapping(produces = "application/json")
+	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public List<Book> addBook(@RequestBody Book book) {
+	public ResponseEntity<Object> addBook(@RequestBody Book book) {
 		bookService.addBook(book);
-		return bookService.getAllBooks();
+		return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.CREATED);
 	}
 	
-	@GetMapping(produces = "application/json")
+	@GetMapping
 	public List<Book> getAllBooks(){
 		
 		List<Book> books = bookService.getAllBooks();
